@@ -126,8 +126,7 @@ public class FirebasePluginMessagingService extends FirebaseMessagingService {
             String channelName = this.getStringResource("default_notification_channel_name");
             Uri defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
 
-            NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this, channelId);
-            Bitmap largeIcon = BitmapFactory.decodeResource(getResources(), R.icon);
+            NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this, channelId);            
             notificationBuilder
                     .setContentTitle(title)
                     .setContentText(messageBody)
@@ -137,7 +136,7 @@ public class FirebasePluginMessagingService extends FirebaseMessagingService {
                     .setSound(defaultSoundUri)
                     .setContentIntent(pendingIntent)
                     .setPriority(NotificationCompat.PRIORITY_MAX)
-                    .setLargeIcon(largeIcon);
+                    .setLargeIcon("res://icon");
 
             int resID = getResources().getIdentifier("notification_icon", "drawable", getPackageName());
             if (resID != 0) {
